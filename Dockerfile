@@ -28,7 +28,17 @@ RUN apk add --no-cache --virtual .build-deps \
                 zlib-dev \
 	        && pip install setuptools cffi 'cython>=0.28' git+git://github.com/gevent/gevent.git#egg=gevent \
 		&& pip install --upgrade psutil \
-		&& apk del .build-deps 
+		&& apk del .build-deps \
+	        \
+	        && find /usr/local -depth \
+		\( \
+			\( -type d -a \( -name test -o -name tests \) \) \
+			-o \
+			\( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
+		\) -exec rm -rf '{}' + \
+	       && rm -rf /usr/src/python \
+	       \
+               && python3 --version
 		
 CMD ["python3"]
 		
