@@ -30,3 +30,5 @@ RUN apk add --no-cache --virtual .build-deps \
 		&& pip install --upgrade psutil \
 		&& apk del .build-deps 
 		
+CMD ["python3"]
+		
