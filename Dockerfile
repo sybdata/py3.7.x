@@ -36,9 +36,6 @@ RUN apk add --no-cache --virtual .build-deps \
 			-o \
 			\( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
 		\) -exec rm -rf '{}' + \
-	       && rm -rf /usr/src/python \
-	       \
-               && python3 --version
+	       && rm -rf /usr/src/python 
 		
-CMD ["python3"]
 		
