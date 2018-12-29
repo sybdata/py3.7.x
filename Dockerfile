@@ -52,7 +52,7 @@ RUN set -ex \
 		sqlite-dev \
 		tcl-dev \
 		tk \
-    git \
+                git \
 		tk-dev \
 		util-linux-dev \
 		xz-dev \
