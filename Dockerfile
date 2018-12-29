@@ -28,7 +28,7 @@ RUN apk add --no-cache --virtual .build-deps \
                 zlib-dev \
 	        && pip install setuptools cffi 'cython>=0.28' git+git://github.com/gevent/gevent.git#egg=gevent \
 		&& pip install --upgrade psutil \
-		&& apk del .build-deps \
+		&& apk del --purge .build-deps \
 	        \
 	        && find /usr/local -depth \
 		\( \
