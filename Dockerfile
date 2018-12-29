@@ -101,8 +101,8 @@ RUN set -ex; \
 			\( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
 		\) -exec rm -rf '{}' +; \
 	rm -f get-pip.py \
-  && pip install setuptools cffi 'cython>=0.28' git+git://github.com/gevent/gevent.git#egg=gevent \
-  && pip install --upgrade psutil \ 
+        && pip install setuptools cffi 'cython>=0.28' git+git://github.com/gevent/gevent.git#egg=gevent \
+        && pip install --upgrade psutil \ 
     
 	&& apk del .build-deps \
 	\
