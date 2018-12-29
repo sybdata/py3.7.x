@@ -81,26 +81,9 @@ RUN set -ex \
 		| awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
 		| xargs -rt apk add --no-cache --virtual .python-rundeps 
 
-ENV PYTHON_PIP_VERSION 18.1
-
-RUN set -ex; \
-	\
-	wget -O get-pip.py 'https://bootstrap.pypa.io/get-pip.py'; \
-	\
-	python get-pip.py \
-		--disable-pip-version-check \
-		--no-cache-dir \
-		"pip==$PYTHON_PIP_VERSION" \
-	; \
-	pip --version; \
-	\
-	find /usr/local -depth \
-		\( \
-			\( -type d -a \( -name test -o -name tests \) \) \
-			-o \
-			\( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
-		\) -exec rm -rf '{}' +; \
-	rm -f get-pip.py \
+RUN     wget -O get-pip.py 'https://bootstrap.pypa.io/get-pip.py'\
+	&& python get-pip.py \
+	&& rm -f get-pip.py \
         && pip install setuptools cffi 'cython>=0.28' git+git://github.com/gevent/gevent.git#egg=gevent \
         && pip install --upgrade psutil \ 
     
