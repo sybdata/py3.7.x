@@ -1,4 +1,4 @@
-FROM python:3.7.2-alpine3.9
+FROM python:3.8.0a1-alpine3.9
 
 RUN apk add --no-cache --virtual .build-deps \
                 bzip2-dev \
