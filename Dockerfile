@@ -27,7 +27,7 @@ RUN apk add --no-cache --virtual .build-deps \
 		xz-dev \
                 zlib-dev \
 		&& apk add --no-cache nano \
-	        && pip install setuptools cffi 'cython>=0.28' git+git://github.com/gevent/gevent.git#egg=gevent \
+	        && pip install --no-binary gevent gevent \
 		&& pip install --upgrade psutil \
 		&& apk del --purge .build-deps \
 	        \
