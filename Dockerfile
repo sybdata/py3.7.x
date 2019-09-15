@@ -27,7 +27,7 @@ util-linux-dev \
 xz-dev \
 zlib-dev \
 build-base \
-&& pip install gevent==1.4.0 \
+&& pip install git+git://github.com/gevent/gevent.git#egg=gevent \
 && pip install --upgrade psutil \
 && apk del --purge .build-deps build-base
 		
