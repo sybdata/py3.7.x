@@ -27,6 +27,7 @@ util-linux-dev \
 xz-dev \
 zlib-dev \
 build-base \
+&& /usr/local/bin/python -m pip install --upgrade pip \
 && pip install --upgrade gevent \
 && pip install --upgrade psutil \
 && apk del --purge .build-deps build-base
